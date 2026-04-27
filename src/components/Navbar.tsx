@@ -1,0 +1,88 @@
+import { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/understanding", label: "Hearing Loss" },
+  { to: "/cochlear-implants", label: "Cochlear Implants" },
+  { to: "/programs", label: "Programs" },
+  { to: "/stories", label: "Stories" },
+  { to: "/workshops", label: "Workshops" },
+  { to: "/contact", label: "Contact" },
+];
+
+export const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-4">
+        <Link to="/" className="flex items-center gap-2 font-serif text-2xl tracking-tight">
+          <span className="text-primary">Samaanya</span>
+          <span className="hidden text-xs uppercase tracking-[0.25em] text-muted-foreground sm:inline">Foundation</span>
+        </Link>
+
+        <nav className="hidden items-center gap-7 lg:flex">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                cn(
+                  "text-sm font-medium transition-smooth hover:text-accent",
+                  isActive ? "text-accent" : "text-foreground/75",
+                )
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 lg:flex">
+          <Button asChild variant="hero" size="default" className="rounded-full">
+            <Link to="/donate">Donate</Link>
+          </Button>
+        </div>
+
+        <button
+          aria-label="Toggle menu"
+          className="rounded-md p-2 text-foreground lg:hidden"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="border-t border-border bg-background lg:hidden">
+          <nav className="flex flex-col gap-1 p-4">
+            {links.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "rounded-md px-3 py-2.5 text-sm font-medium transition-smooth",
+                  location.pathname === l.to
+                    ? "bg-primary-soft text-primary"
+                    : "text-foreground/80 hover:bg-muted",
+                )}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Button asChild variant="hero" className="mt-3 rounded-full">
+              <Link to="/donate" onClick={() => setOpen(false)}>Donate</Link>
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
