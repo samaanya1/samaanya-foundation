@@ -28,9 +28,9 @@ export const Footer = () => {
           <h4 className="font-serif text-base text-foreground">Explore</h4>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/about" className="hover:text-accent">About</Link></li>
-            <li><Link to="/programs" className="hover:text-accent">Programs</Link></li>
+            <li><Link to="/programs" className="hover:text-accent">Programs & workshops</Link></li>
+            <li><Link to="/fundraisers" className="hover:text-accent">Fundraisers</Link></li>
             <li><Link to="/stories" className="hover:text-accent">Stories</Link></li>
-            <li><Link to="/workshops" className="hover:text-accent">Workshops</Link></li>
           </ul>
         </div>
 
