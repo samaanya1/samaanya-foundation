@@ -113,7 +113,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* IMPACT */}
+      {/* WHY NOW — we're just getting started */}
       <section className="gradient-warm">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
           <img
@@ -125,23 +125,21 @@ const Home = () => {
             className="aspect-[5/4] w-full rounded-3xl object-cover shadow-elegant"
           />
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">Our impact</p>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">Small actions. Real change.</h2>
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">We're just getting started</p>
+            <h2 className="mt-3 font-serif text-4xl md:text-5xl">A new foundation. A long road ahead.</h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Every conversation, every workshop, every parent we connect to the right
-              audiologist is a step toward an India that includes everyone.
+              Samaanya was founded in 2026 — born out of personal experience and a belief
+              that no Indian family should have to navigate hearing disability alone.
+              We're building this from the ground up, one conversation, one family,
+              one workshop at a time. Your support shapes what comes next.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-6">
-              {[
-                { n: "200+", l: "Families guided" },
-                { n: "30+", l: "Workshops held" },
-                { n: "12", l: "Cities reached" },
-              ].map((s) => (
-                <div key={s.l}>
-                  <p className="font-serif text-4xl text-accent">{s.n}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{s.l}</p>
-                </div>
-              ))}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild variant="hero" size="lg">
+                <Link to="/programs">See our programs</Link>
+              </Button>
+              <Button asChild variant="soft" size="lg">
+                <Link to="/fundraisers">Help a family</Link>
+              </Button>
             </div>
           </div>
         </div>

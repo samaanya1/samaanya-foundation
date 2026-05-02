@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -10,8 +11,8 @@ const links = [
   { to: "/understanding", label: "Hearing Loss" },
   { to: "/cochlear-implants", label: "Cochlear Implants" },
   { to: "/programs", label: "Programs" },
+  { to: "/fundraisers", label: "Fundraisers" },
   { to: "/stories", label: "Stories" },
-  { to: "/workshops", label: "Workshops" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -21,10 +22,10 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2 font-serif text-2xl tracking-tight">
-          <span className="text-primary">Samaanya</span>
-          <span className="hidden text-xs uppercase tracking-[0.25em] text-muted-foreground sm:inline">Foundation</span>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 py-3">
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="Samaanya Foundation logo" className="h-12 w-auto" />
+          <span className="hidden font-serif text-xl tracking-tight text-primary sm:inline">Samaanya</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

@@ -10,7 +10,7 @@ import Understanding from "./pages/Understanding.tsx";
 import CochlearImplants from "./pages/CochlearImplants.tsx";
 import Programs from "./pages/Programs.tsx";
 import Stories from "./pages/Stories.tsx";
-import Workshops from "./pages/Workshops.tsx";
+import Fundraisers from "./pages/Fundraisers.tsx";
 import Donate from "./pages/Donate.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -31,7 +31,8 @@ const App = () => (
             <Route path="/cochlear-implants" element={<CochlearImplants />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/stories" element={<Stories />} />
-            <Route path="/workshops" element={<Workshops />} />
+            <Route path="/workshops" element={<Programs />} />
+            <Route path="/fundraisers" element={<Fundraisers />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
