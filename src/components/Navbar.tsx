@@ -12,7 +12,6 @@ const links = [
   { to: "/cochlear-implants", label: "Cochlear Implants" },
   { to: "/programs", label: "Programs" },
   { to: "/fundraisers", label: "Fundraisers" },
-  { to: "/stories", label: "Stories" },
   { to: "/contact", label: "Contact" },
 ];
 

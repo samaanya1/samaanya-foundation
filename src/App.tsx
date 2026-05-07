@@ -9,7 +9,6 @@ import About from "./pages/About.tsx";
 import Understanding from "./pages/Understanding.tsx";
 import CochlearImplants from "./pages/CochlearImplants.tsx";
 import Programs from "./pages/Programs.tsx";
-import Stories from "./pages/Stories.tsx";
 import Fundraisers from "./pages/Fundraisers.tsx";
 import Donate from "./pages/Donate.tsx";
 import Contact from "./pages/Contact.tsx";
@@ -30,8 +29,8 @@ const App = () => (
             <Route path="/understanding" element={<Understanding />} />
             <Route path="/cochlear-implants" element={<CochlearImplants />} />
             <Route path="/programs" element={<Programs />} />
-            <Route path="/stories" element={<Stories />} />
             <Route path="/workshops" element={<Programs />} />
+            <Route path="/stories" element={<About />} />
             <Route path="/fundraisers" element={<Fundraisers />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/contact" element={<Contact />} />

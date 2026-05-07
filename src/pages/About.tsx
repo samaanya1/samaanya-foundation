@@ -60,34 +60,49 @@ const About = () => {
         </div>
       </section>
 
-      {/* FOUNDER STORY */}
+      {/* FOUNDER STORY — in Samay's own words */}
       <section className="gradient-sage border-y border-border">
         <div className="container-narrow py-20">
-          <p className="text-center text-xs font-medium uppercase tracking-[0.3em] text-accent">Founder story</p>
-          <h2 className="mt-3 text-center font-serif text-4xl md:text-5xl">A journey that began with one child.</h2>
+          <p className="text-center text-xs font-medium uppercase tracking-[0.3em] text-accent">In the founder's words</p>
+          <h2 className="mt-3 text-center font-serif text-4xl md:text-5xl">Why Samaanya exists.</h2>
+          <p className="mt-4 text-center text-sm uppercase tracking-[0.2em] text-muted-foreground">— Samay Tulsyan, Founder</p>
 
           <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/85">
             <p>
-              <span className="font-serif text-2xl text-primary">Samay Tulsyan</span> is the
-              Founder of Samaanya Foundation and someone who understands hearing
-              disability through lived experience. Having received a cochlear implant at a
-              young age, he grew up navigating communication, education, and social spaces
-              that are often not designed to be inclusive.
+              I am <span className="font-serif text-2xl text-primary">Samay Tulsyan</span>, and I
+              have lived with hearing disability for most of my life. While medical support and
+              technology helped me hear better, they could not erase the challenges that came
+              with being different in a society that often fails to understand disability with
+              empathy.
             </p>
             <p>
-              He is currently a law student at a National Law University, Jodhpur. His
-              experiences shaped his understanding of access, opportunity, and the everyday
-              barriers faced by individuals with hearing impairments and their families.
-            </p>
-            <p>
-              Samaanya Foundation emerged from this intersection of personal experience and
-              a desire to make the journey easier for others. The focus is on awareness,
-              guidance, and building a support system — especially for families who often
-              don't know where to begin.
+              Growing up, I faced rejection, exclusion, and constant judgment. I was denied
+              opportunities, struggled to find acceptance in schools, and often had to work
+              twice as hard just to be treated equally. There were moments when people saw my
+              hearing disability before they saw me as a person. The emotional impact of
+              feeling isolated, misunderstood, or left behind is something countless individuals
+              with hearing disabilities silently go through every day.
             </p>
             <p className="font-serif text-2xl text-accent">
-              For him, this work is about ensuring access, information, and dignity — not
-              charity.
+              But these experiences also shaped my purpose.
+            </p>
+            <p>
+              Samaanya Foundation was created with the belief that people with hearing
+              disabilities deserve more than medical assistance — they deserve dignity,
+              inclusion, confidence, and equal opportunities. Our work is not limited to
+              providing support; it is about standing beside individuals and families as they
+              navigate education, social acceptance, emotional well-being, and access to
+              opportunities that many take for granted.
+            </p>
+            <p>
+              We believe that disability should never become a barrier to education,
+              friendships, careers, or dreams. Through awareness, guidance, financial support,
+              and community building, Samaanya Foundation aims to create a society where people
+              with hearing disabilities are not made to feel different, but are empowered to
+              live with confidence and pride.
+            </p>
+            <p className="font-serif text-2xl text-primary">
+              Because true inclusion begins when society learns to listen beyond a disability.
             </p>
           </div>
         </div>
