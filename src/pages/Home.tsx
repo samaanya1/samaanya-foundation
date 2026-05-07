@@ -145,7 +145,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* STORY TEASER */}
+      {/* FOUNDER VOICE */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -161,15 +161,19 @@ const Home = () => {
           <div className="flex flex-col justify-center md:col-span-7">
             <Sparkles className="h-8 w-8 text-accent" />
             <blockquote className="mt-5 font-serif text-3xl leading-snug text-balance md:text-4xl">
-              “When my son was diagnosed, I felt completely lost. Samaanya didn't give me
-              pity — they gave me a roadmap, and other parents who had walked it.”
+              “True inclusion begins when society learns to listen beyond a disability.”
             </blockquote>
             <p className="mt-6 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-              — Priya, parent · Mumbai
+              — Samay Tulsyan, Founder
+            </p>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              Samaanya was born from lived experience — of rejection, of working twice as
+              hard, and of the belief that people with hearing disabilities deserve dignity,
+              confidence, and equal opportunities, not pity.
             </p>
             <div className="mt-8">
               <Button asChild variant="warm" size="lg">
-                <Link to="/stories">Read more stories <ArrowRight className="h-4 w-4" /></Link>
+                <Link to="/about">Read our full story <ArrowRight className="h-4 w-4" /></Link>
               </Button>
             </div>
           </div>

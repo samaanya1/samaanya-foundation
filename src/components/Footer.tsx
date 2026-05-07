@@ -30,7 +30,6 @@ export const Footer = () => {
             <li><Link to="/about" className="hover:text-accent">About</Link></li>
             <li><Link to="/programs" className="hover:text-accent">Programs & workshops</Link></li>
             <li><Link to="/fundraisers" className="hover:text-accent">Fundraisers</Link></li>
-            <li><Link to="/stories" className="hover:text-accent">Stories</Link></li>
           </ul>
         </div>
 
