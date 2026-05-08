@@ -20,7 +20,7 @@ const Home = () => {
               You are not <em className="text-accent not-italic">alone</em> on this journey.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Samaanya supports families and individuals navigating hearing disability in
+              Samaanya Foundation supports families and individuals navigating hearing disability in
               India — through awareness, guidance, and a community that understands.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -66,7 +66,7 @@ const Home = () => {
             Building a support system for families who don't know where to begin.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Founded by someone who has lived this journey, Samaanya focuses on awareness,
+            Founded by someone who has lived this journey, Samaanya Foundation focuses on awareness,
             information, and dignity — for everyone touched by hearing loss.
           </p>
         </div>
@@ -128,7 +128,7 @@ const Home = () => {
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">We're just getting started</p>
             <h2 className="mt-3 font-serif text-4xl md:text-5xl">A new foundation. A long road ahead.</h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Samaanya was founded in 2026 — born out of personal experience and a belief
+              Samaanya Foundation was founded in 2026 — born out of personal experience and a belief
               that no Indian family should have to navigate hearing disability alone.
               We're building this from the ground up, one conversation, one family,
               one workshop at a time. Your support shapes what comes next.
@@ -167,7 +167,7 @@ const Home = () => {
               — Samay Tulsyan, Founder
             </p>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Samaanya was born from lived experience — of rejection, of working twice as
+              Samaanya Foundation was born from lived experience — of rejection, of working twice as
               hard, and of the belief that people with hearing disabilities deserve dignity,
               confidence, and equal opportunities, not pity.
             </p>

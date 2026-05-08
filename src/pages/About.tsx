@@ -12,7 +12,7 @@ const team = [
     role: "Founder",
     initials: "ST",
     photo: samayPhoto,
-    bio: "Founder with lived experience of cochlear implant. Currently a law student at National Law University, Jodhpur. Focused on access, inclusion, and support systems.",
+    bio: "Samay Tulsyan is the Founder of Samaanya Foundation with hearing disabilities. He himself is a person with hearing impairment who received a cochlear implant at a young age, enabling him to develop communication skills and pursue his educational goals. His personal journey has given him a deep understanding of the challenges faced by individuals with hearing disabilities and their families. Currently, Samay is a student at a prestigious law university, where he is committed to using education as a tool for social change. Inspired by his own experiences, he established Samaanya Foundation to support people of all ages with hearing disabilities through awareness, guidance, and community support. He believes that every individual deserves equal opportunities to learn, communicate, and succeed in life.",
   },
   {
     name: "Manisha Tulsyan",
@@ -26,14 +26,14 @@ const team = [
     role: "Co-Founder",
     initials: "AT",
     photo: aanyaPhoto,
-    bio: "Student at Ashoka University. Inspired by her brother's journey, she focuses on awareness, guidance, and building accessible systems for students and families.",
+    bio: "Aanya Tulsyan is the co founder of a foundation supporting students with cochlear implants and individuals navigating hearing loss. Her connection to this work is deeply personal, shaped by her brother, Samay Pravin Tulsyan, whose journey with a cochlear implant gave her an early understanding of the barriers that often go unnoticed. Growing up alongside him, she saw how classrooms and social spaces are not always designed with accessibility in mind. Those experiences continue to influence how she thinks about inclusion as something that must be intentionally built into everyday systems. She is currently a student at Ashoka University, where her academic environment has strengthened her commitment to creating more equitable and responsive spaces. Through the foundation, she focuses on awareness, guidance, and building a support system for students and families. The goal is to make information more accessible, reduce uncertainty, and ensure that students can move through their academic journeys with confidence and independence.",
   },
   {
     name: "Suhani Goel",
     role: "Creative Head",
     initials: "SG",
     photo: suhaniPhoto,
-    bio: "Student at Symbiosis Centre for Media and Communication, Pune. Leads creative direction, storytelling, and social media outreach for the foundation.",
+    bio: "Suhani Goel is the Creative Head at Samaanya Foundation. She is currently pursuing her studies at Symbiosis Centre for Media and Communication, Pune. Through her academic journey, she has developed a strong foundation in creative communication, storytelling, and content creation. In her role at the Foundation, Suhani is responsible for leading the creative direction of Samaanya Foundation's outreach and awareness initiatives. She also manages the Foundation's social media presence, working to grow and engage a community that believes in the cause of inclusion and accessibility. Through consistent and thoughtful content, she ensures that Samaanya Foundation's voice remains active, relevant, and impactful across platforms. She works towards crafting content that is not only visually impactful but also sensitive to the experiences of individuals and families living with hearing disabilities. Her work focuses on ensuring that the Foundation's message reaches the right audiences in a clear, compassionate, and compelling manner. At Samaanya Foundation, she is committed to channeling her skills and passion towards building a more inclusive and aware society, one story at a time.",
   },
   {
     name: "Veethika Kapur",
@@ -48,7 +48,7 @@ const About = () => {
   return (
     <>
       <PageHero
-        eyebrow="About Samaanya"
+        eyebrow="About Samaanya Foundation"
         title="Born from lived experience. Built for everyone."
         description="Samaanya means 'equal' — and that idea sits at the heart of everything we do."
       />
@@ -79,7 +79,7 @@ const About = () => {
       <section className="gradient-sage border-y border-border">
         <div className="container-narrow py-20">
           <p className="text-center text-xs font-medium uppercase tracking-[0.3em] text-accent">In the founder's words</p>
-          <h2 className="mt-3 text-center font-serif text-4xl md:text-5xl">Why Samaanya exists.</h2>
+          <h2 className="mt-3 text-center font-serif text-4xl md:text-5xl">Why Samaanya Foundation exists.</h2>
           <p className="mt-4 text-center text-sm uppercase tracking-[0.2em] text-muted-foreground">— Samay Tulsyan, Founder</p>
 
           <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/85">
@@ -127,7 +127,7 @@ const About = () => {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="text-center">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">Our team</p>
-          <h2 className="mt-3 font-serif text-4xl md:text-5xl">The people behind Samaanya</h2>
+          <h2 className="mt-3 font-serif text-4xl md:text-5xl">The people behind Samaanya Foundation</h2>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
             A small, committed group of students, professionals, and family members who
             believe in building something better.
