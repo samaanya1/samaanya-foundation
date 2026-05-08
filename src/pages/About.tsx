@@ -137,21 +137,21 @@ const About = () => {
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {team.map((m) => (
             <article key={m.name} className="rounded-3xl border border-border bg-card p-8 transition-smooth hover:-translate-y-1 hover:shadow-soft">
-              <div className="flex items-start gap-5">
+              <div className="flex items-start gap-6">
                 {m.photo ? (
                   <img
                     src={m.photo}
                     alt={`Portrait of ${m.name}`}
-                    className="h-20 w-20 shrink-0 rounded-full object-cover ring-2 ring-primary/20"
+                    className="h-28 w-28 shrink-0 rounded-2xl object-cover object-top ring-2 ring-primary/20"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-serif text-primary-foreground">
+                  <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl font-serif text-primary-foreground">
                     {m.initials}
                   </div>
                 )}
-                <div>
-                  <h3 className="font-serif text-2xl">{m.name}</h3>
-                  <p className="mt-1 text-sm font-medium uppercase tracking-[0.2em] text-accent">{m.role}</p>
+                <div className="pt-1">
+                  <h3 className="font-serif text-2xl leading-tight">{m.name}</h3>
+                  <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-accent">{m.role}</p>
                 </div>
               </div>
               <p className="mt-5 leading-relaxed text-muted-foreground">{m.bio}</p>
