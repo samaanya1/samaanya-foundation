@@ -3,10 +3,11 @@ import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Megaphone, Users, Sparkles, Globe, Calendar, MapPin, Clock } from "lucide-react";
-import { toast } from "sonner";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Megaphone, Users, Sparkles, Globe, CalendarDays } from "lucide-react";
 import workshopImg from "@/assets/workshop.jpg";
+
+// Replace this with your Samaanya Foundation Google Calendar ID (Calendar Settings → Integrate calendar → Calendar ID)
+const GOOGLE_CALENDAR_ID = "hello@samaanyafoundation.org";
 
 const programs = [
   {
