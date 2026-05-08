@@ -24,7 +24,7 @@ export const Navbar = () => {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Samaanya Foundation logo" className="h-12 w-auto" />
-          <span className="hidden font-serif text-xl tracking-tight text-primary sm:inline">Samaanya</span>
+          <span className="hidden font-serif text-xl tracking-tight text-primary sm:inline">Samaanya Foundation</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
