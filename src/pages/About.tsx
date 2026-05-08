@@ -1,30 +1,45 @@
 import { PageHero } from "@/components/PageHero";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import samayPhoto from "@/assets/team-samay.png";
+import aanyaPhoto from "@/assets/team-aanya.png";
+import suhaniPhoto from "@/assets/team-suhani.jpg";
+import manishaPhoto from "@/assets/team-manisha.png";
 
 const team = [
   {
     name: "Samay Tulsyan",
     role: "Founder",
     initials: "ST",
+    photo: samayPhoto,
     bio: "Founder with lived experience of cochlear implant. Currently a law student at National Law University, Jodhpur. Focused on access, inclusion, and support systems.",
+  },
+  {
+    name: "Manisha Tulsyan",
+    role: "Director — Family Guidance & Welfare",
+    initials: "MT",
+    photo: manishaPhoto,
+    bio: "Manisha Tulsyan serves as the Director of Family Guidance and Welfare at Samaanya Foundation, where she works closely with children with disabilities and their families to provide emotional support, guidance, and access to resources. As the mother of a cochlear implant recipient, she brings not only professional commitment but also lived experience and deep personal understanding to her role. With a compassionate and community-oriented approach, she focuses on strengthening family support systems, spreading awareness about hearing disabilities, and ensuring that parents feel empowered while navigating the challenges associated with disability and inclusion. Through her work, she aims to create a more understanding, accessible, and supportive environment for persons with disabilities and their families.",
   },
   {
     name: "Aanya Tulsyan",
     role: "Co-Founder",
     initials: "AT",
+    photo: aanyaPhoto,
     bio: "Student at Ashoka University. Inspired by her brother's journey, she focuses on awareness, guidance, and building accessible systems for students and families.",
   },
   {
     name: "Suhani Goel",
     role: "Creative Head",
     initials: "SG",
+    photo: suhaniPhoto,
     bio: "Student at Symbiosis Centre for Media and Communication, Pune. Leads creative direction, storytelling, and social media outreach for the foundation.",
   },
   {
     name: "Veethika Kapur",
     role: "Audiologist",
     initials: "VK",
+    photo: null as string | null,
     bio: "Provides professional expertise in hearing health, cochlear implants, and guidance for families navigating the journey.",
   },
 ];
@@ -123,9 +138,17 @@ const About = () => {
           {team.map((m) => (
             <article key={m.name} className="rounded-3xl border border-border bg-card p-8 transition-smooth hover:-translate-y-1 hover:shadow-soft">
               <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-serif text-primary-foreground">
-                  {m.initials}
-                </div>
+                {m.photo ? (
+                  <img
+                    src={m.photo}
+                    alt={`Portrait of ${m.name}`}
+                    className="h-20 w-20 shrink-0 rounded-full object-cover ring-2 ring-primary/20"
+                  />
+                ) : (
+                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-serif text-primary-foreground">
+                    {m.initials}
+                  </div>
+                )}
                 <div>
                   <h3 className="font-serif text-2xl">{m.name}</h3>
                   <p className="mt-1 text-sm font-medium uppercase tracking-[0.2em] text-accent">{m.role}</p>
