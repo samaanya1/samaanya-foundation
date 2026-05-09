@@ -11,6 +11,8 @@ const links = [
   { to: "/understanding", label: "Hearing Loss" },
   { to: "/cochlear-implants", label: "Cochlear Implants" },
   { to: "/programs", label: "Programs" },
+  { to: "/webinars", label: "Webinars" },
+  { to: "/stories", label: "Stories" },
   { to: "/fundraisers", label: "Fundraisers" },
   { to: "/contact", label: "Contact" },
 ];
@@ -24,10 +26,12 @@ export const Navbar = () => {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Samaanya Foundation logo" className="h-12 w-auto" />
-          <span className="hidden font-serif text-xl tracking-tight text-primary sm:inline">Samaanya Foundation</span>
+          <span className="hidden font-serif text-xl tracking-tight text-primary sm:inline">
+            Samaanya Foundation
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -78,7 +82,9 @@ export const Navbar = () => {
               </Link>
             ))}
             <Button asChild variant="hero" className="mt-3 rounded-full">
-              <Link to="/donate" onClick={() => setOpen(false)}>Donate</Link>
+              <Link to="/donate" onClick={() => setOpen(false)}>
+                Donate
+              </Link>
             </Button>
           </nav>
         </div>
