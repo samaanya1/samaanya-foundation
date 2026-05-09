@@ -12,6 +12,8 @@ import Programs from "./pages/Programs.tsx";
 import Fundraisers from "./pages/Fundraisers.tsx";
 import Donate from "./pages/Donate.tsx";
 import Contact from "./pages/Contact.tsx";
+import Webinars from "./pages/Webinars.tsx";
+import Stories from "./pages/Stories.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -30,7 +32,8 @@ const App = () => (
             <Route path="/cochlear-implants" element={<CochlearImplants />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/workshops" element={<Programs />} />
-            <Route path="/stories" element={<About />} />
+            <Route path="/webinars" element={<Webinars />} />
+            <Route path="/stories" element={<Stories />} />
             <Route path="/fundraisers" element={<Fundraisers />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/contact" element={<Contact />} />
