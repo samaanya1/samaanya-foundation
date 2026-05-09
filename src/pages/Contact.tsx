@@ -4,9 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
+
+// ✅ Your Google Sheets Requests tab CSV (for reading)
+// ✅ Form submissions go directly into your Google Sheet via Apps Script
+const APPS_SCRIPT_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vS6vnIK0Nzot0ILh7UZh8sm_fMuAK4iSO79OrXHRtWJ9XTBM_Vakt7SmrVflUVe6GNssj5LTqgka7sG/pub?gid=1854438164&single=true&output=csv";
+// 🔁 REPLACE the above with your Apps Script Web App URL after setup (see README)
 
 const schema = z.object({
   name: z.string().trim().min(1, "Please share your name.").max(100),
@@ -18,16 +24,35 @@ const schema = z.object({
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", role: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
       toast.error(result.error.issues[0].message);
       return;
     }
-    toast.success("Thank you. We'll get back to you within 2 working days.");
-    setForm({ name: "", email: "", phone: "", role: "", message: "" });
+
+    setSubmitting(true);
+    try {
+      // Send to Google Apps Script (writes to your Requests sheet)
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          date: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+        }),
+      });
+      toast.success("Thank you! We'll get back to you within 2 working days.");
+      setForm({ name: "", email: "", phone: "", role: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -44,7 +69,9 @@ const Contact = () => {
             <div className="rounded-3xl border border-border bg-card p-7">
               <Mail className="h-5 w-5 text-accent" />
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Email</p>
-              <a href="mailto:hello@samaanya.org" className="mt-1 block font-serif text-xl hover:text-accent">hello@samaanya.org</a>
+              <a href="mailto:hello@samaanya.org" className="mt-1 block font-serif text-xl hover:text-accent">
+                hello@samaanya.org
+              </a>
             </div>
             <div className="rounded-3xl border border-border bg-card p-7">
               <Phone className="h-5 w-5 text-accent" />
@@ -60,30 +87,67 @@ const Contact = () => {
             </div>
           </aside>
 
-          <form onSubmit={submit} className="space-y-5 rounded-3xl border border-border bg-card p-8 shadow-soft md:col-span-3 md:p-10">
+          <form
+            onSubmit={submit}
+            className="space-y-5 rounded-3xl border border-border bg-card p-8 shadow-soft md:col-span-3 md:p-10"
+          >
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <Label htmlFor="name">Name *</Label>
-                <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} />
+                <Input
+                  id="name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  maxLength={100}
+                />
               </div>
               <div>
                 <Label htmlFor="email">Email *</Label>
-                <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} />
+                <Input
+                  id="email"
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  maxLength={255}
+                />
               </div>
               <div>
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} />
+                <Input
+                  id="phone"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  maxLength={20}
+                />
               </div>
               <div>
-                <Label htmlFor="role">I am a...</Label>
-                <Input id="role" placeholder="parent, individual, educator..." value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })} maxLength={60} />
+                <Label htmlFor="role">I am a…</Label>
+                <Input
+                  id="role"
+                  placeholder="parent, individual, educator..."
+                  value={form.role}
+                  onChange={(e) => setForm({ ...form, role: e.target.value })}
+                  maxLength={60}
+                />
               </div>
             </div>
             <div>
               <Label htmlFor="message">How can we help? *</Label>
-              <Textarea id="message" rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} />
+              <Textarea
+                id="message"
+                rows={5}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                maxLength={1000}
+              />
             </div>
-            <Button type="submit" variant="hero" size="lg" className="w-full">Send message</Button>
+            <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
+              {submitting ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>
+              ) : (
+                "Send message"
+              )}
+            </Button>
             <p className="text-center text-xs text-muted-foreground">
               Your details stay private. We reply within 2 working days.
             </p>
