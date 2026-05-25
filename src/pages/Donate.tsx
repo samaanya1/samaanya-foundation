@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, ShieldCheck, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { useRazorpay } from "@/hooks/useRazorpay";
 
 const presets = [500, 1000, 2500, 5000];
 
@@ -11,14 +12,38 @@ const Donate = () => {
   const [amount, setAmount] = useState<number>(1000);
   const [custom, setCustom] = useState("");
   const [frequency, setFrequency] = useState<"once" | "monthly">("once");
+  const [loading, setLoading] = useState(false);
+  const { openCheckout } = useRazorpay();
 
-  const submit = () => {
+  const submit = async () => {
     const final = custom ? Number(custom) : amount;
     if (!final || final < 100) {
       toast.error("Please enter an amount of ₹100 or more.");
       return;
     }
-    toast.success(`Thank you for your ${frequency === "monthly" ? "monthly" : "one-time"} contribution of ₹${final}.`);
+
+    setLoading(true);
+    try {
+      await openCheckout({
+        amount: final * 100,
+        description: frequency === "monthly" ? "Monthly Donation" : "One-time Donation",
+        onSuccess(paymentId) {
+          toast.success(
+            `Thank you! Your ${frequency === "monthly" ? "monthly" : "one-time"} gift of ₹${final.toLocaleString()} was received. Payment ID: ${paymentId}`
+          );
+        },
+        onDismiss() {
+          toast.info("Payment was cancelled.");
+        },
+        onError(message) {
+          toast.error(message);
+        },
+      });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Payment failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,8 +110,9 @@ const Donate = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="xl" className="mt-8 w-full" onClick={submit}>
-                <Heart className="h-4 w-4" /> Donate {custom ? `₹${custom}` : `₹${amount.toLocaleString()}`}
+              <Button variant="hero" size="xl" className="mt-8 w-full" onClick={submit} disabled={loading}>
+                <Heart className="h-4 w-4" />
+                {loading ? "Opening payment…" : `Donate ${custom ? `₹${custom}` : `₹${amount.toLocaleString()}`}`}
               </Button>
 
               <p className="mt-4 text-center text-xs text-muted-foreground">
