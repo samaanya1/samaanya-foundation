@@ -1,9 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json({
-    has_key_id: !!process.env.RAZORPAY_KEY_ID,
+    key_id: process.env.RAZORPAY_KEY_ID ?? "NOT SET",
     has_key_secret: !!process.env.RAZORPAY_KEY_SECRET,
-    key_id_preview: process.env.RAZORPAY_KEY_ID
-      ? process.env.RAZORPAY_KEY_ID.substring(0, 8) + "..."
-      : "NOT SET",
+    key_secret_length: process.env.RAZORPAY_KEY_SECRET?.length ?? 0,
   });
 }
