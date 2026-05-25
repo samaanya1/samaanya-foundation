@@ -1,4 +1,6 @@
-import Razorpay from "razorpay";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const Razorpay = require("razorpay");
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
