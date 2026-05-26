@@ -58,7 +58,7 @@ export function useRazorpay() {
         order_id,
         amount,
         currency,
-        name: "Hear Bright",
+        name: "Samaanya Foundation",
         description: opts.description ?? "Donation",
         theme: { color: "#55B9E7" },
         prefill: {
