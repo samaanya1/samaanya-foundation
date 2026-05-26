@@ -56,6 +56,63 @@ export type Database = {
         }
         Relationships: []
       }
+      webinars: {
+        Row: {
+          id: string
+          title: string
+          speaker: string | null
+          date: string | null
+          description: string | null
+          link: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          speaker?: string | null
+          date?: string | null
+          description?: string | null
+          link?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          speaker?: string | null
+          date?: string | null
+          description?: string | null
+          link?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
+      stories: {
+        Row: {
+          id: string
+          name: string
+          location: string | null
+          story: string
+          image_url: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          location?: string | null
+          story: string
+          image_url?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          location?: string | null
+          story?: string
+          image_url?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       donations: {
         Row: {
           id: string

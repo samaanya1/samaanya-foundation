@@ -1,12 +1,28 @@
 import { PageHero } from "@/components/PageHero";
-import { useSheetData } from "@/hooks/useSheetData";
+import { useQuery } from "@tanstack/react-query";
 import { Heart, MapPin, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
-const SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vS6vnIK0Nzot0ILh7UZh8sm_fMuAK4iSO79OrXHRtWJ9XTBM_Vakt7SmrVflUVe6GNssj5LTqgka7sG/pub?gid=0&single=true&output=csv";
+type Story = {
+  id: string;
+  name: string;
+  location: string | null;
+  story: string;
+  image_url: string | null;
+};
 
 const Stories = () => {
-  const { data, loading, error } = useSheetData(SHEET_URL);
+  const { data = [], isLoading, isError } = useQuery({
+    queryKey: ["stories"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("stories")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return data as Story[];
+    },
+  });
 
   return (
     <>
@@ -17,32 +33,34 @@ const Stories = () => {
       />
 
       <section className="mx-auto max-w-5xl px-6 py-20">
-        {loading && (
+        {isLoading && (
           <div className="flex flex-col items-center gap-4 py-24 text-muted-foreground">
             <Loader2 className="h-8 w-8 animate-spin text-accent" />
             <p>Loading stories…</p>
           </div>
         )}
 
-        {error && (
+        {isError && (
           <div className="rounded-2xl border border-border bg-card p-10 text-center text-muted-foreground">
             Could not load stories right now. Please check back soon.
           </div>
         )}
 
-        {!loading && !error && data.length === 0 && (
+        {!isLoading && !isError && data.length === 0 && (
           <div className="flex flex-col items-center gap-4 py-24 text-center">
             <Heart className="h-10 w-10 text-accent" />
             <p className="font-serif text-2xl">Stories coming soon.</p>
-            <p className="text-muted-foreground">We're collecting voices from the community. Watch this space.</p>
+            <p className="text-muted-foreground">
+              We're collecting voices from the community. Watch this space.
+            </p>
           </div>
         )}
 
-        {!loading && !error && data.length > 0 && (
+        {!isLoading && !isError && data.length > 0 && (
           <div className="grid gap-8 md:grid-cols-2">
-            {data.map((s, i) => (
+            {data.map((s) => (
               <div
-                key={i}
+                key={s.id}
                 className="rounded-2xl border border-border bg-card p-8 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant"
               >
                 <div className="flex items-center gap-4">
