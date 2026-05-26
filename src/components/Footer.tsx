@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Instagram, Linkedin } from "lucide-react";
+import { Mail, Instagram } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -17,9 +17,6 @@ export const Footer = () => {
             </a>
             <a href="https://www.instagram.com/samaanya_foundation?igsh=dGs1dmV6dmF1cHBh" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-foreground/70 transition-smooth hover:border-accent hover:text-accent" aria-label="Instagram">
               <Instagram className="h-4 w-4" />
-            </a>
-            <a href="#" className="rounded-full border border-border p-2.5 text-foreground/70 transition-smooth hover:border-accent hover:text-accent" aria-label="LinkedIn">
-              <Linkedin className="h-4 w-4" />
             </a>
           </div>
         </div>
