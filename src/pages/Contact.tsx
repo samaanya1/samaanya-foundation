@@ -8,11 +8,7 @@ import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 
-// ✅ Your Google Sheets Requests tab CSV (for reading)
-// ✅ Form submissions go directly into your Google Sheet via Apps Script
-const APPS_SCRIPT_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vS6vnIK0Nzot0ILh7UZh8sm_fMuAK4iSO79OrXHRtWJ9XTBM_Vakt7SmrVflUVe6GNssj5LTqgka7sG/pub?gid=1854438164&single=true&output=csv";
-// 🔁 REPLACE the above with your Apps Script Web App URL after setup (see README)
+const FORMSPREE_URL = "https://formspree.io/f/mjgzajrd";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Please share your name.").max(100),
@@ -36,20 +32,22 @@ const Contact = () => {
 
     setSubmitting(true);
     try {
-      // Send to Google Apps Script (writes to your Requests sheet)
-      await fetch(APPS_SCRIPT_URL, {
+      const res = await fetch(FORMSPREE_URL, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          ...form,
-          date: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          role: form.role,
+          message: form.message,
         }),
       });
+      if (!res.ok) throw new Error();
       toast.success("Thank you! We'll get back to you within 2 working days.");
       setForm({ name: "", email: "", phone: "", role: "", message: "" });
     } catch {
-      toast.error("Something went wrong. Please email us directly.");
+      toast.error("Something went wrong. Please email us directly at info@samaanyafoundation.com");
     } finally {
       setSubmitting(false);
     }
