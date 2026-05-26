@@ -3,7 +3,7 @@ import { ArrowRight, Heart, Users, BookOpen, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-mother-child.jpg";
 import communityImg from "@/assets/community.jpg";
-import joyImg from "@/assets/child-joy.jpg";
+import joyImg from "@/assets/child-ci.jpg";
 import leaf from "@/assets/leaf.png";
 
 const Home = () => {
