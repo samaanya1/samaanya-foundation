@@ -62,29 +62,6 @@ const Programs = () => {
         </div>
       </section>
 
-      {/* Parent circles intro */}
-      <section className="gradient-warm">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
-          <img
-            src={workshopImg}
-            alt="A community parent workshop in session"
-            width={1400}
-            height={1000}
-            loading="lazy"
-            className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
-          />
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">In focus</p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">Parent circles, every month.</h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              Our parent circles are small, intimate sessions led by families who've walked
-              the same road. No medical jargon. No judgement. Just shared experience and
-              honest conversation.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Live calendar of webinars & workshops */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="mb-10 text-center">

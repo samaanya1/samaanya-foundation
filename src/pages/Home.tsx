@@ -92,11 +92,6 @@ const Home = () => {
               text: "One-on-one support for parents who've just received a diagnosis — what to ask, where to go, what to expect.",
             },
             {
-              icon: Users,
-              title: "Community circles",
-              text: "Spaces where families and CI recipients connect, share experiences, and find friendship.",
-            },
-            {
               icon: BookOpen,
               title: "Awareness & education",
               text: "Workshops, resources and conversations that demystify hearing loss for schools, workplaces, and society.",

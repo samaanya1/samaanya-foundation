@@ -126,8 +126,7 @@ const Donate = () => {
               <Sparkles className="h-6 w-6" />
               <h3 className="mt-3 font-serif text-2xl">Where your gift goes</h3>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-primary-foreground/85">
-                <li>· Parent circles & community meet-ups</li>
-                <li>· Free awareness workshops</li>
+<li>· Free awareness workshops</li>
                 <li>· Educational resources for families</li>
                 <li>· Outreach in under-served regions</li>
               </ul>
