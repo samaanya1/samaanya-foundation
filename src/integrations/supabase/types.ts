@@ -14,7 +14,89 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      fundraisers: {
+        Row: {
+          id: string
+          slug: string
+          name: string
+          age: number
+          city: string
+          need: string
+          story: string
+          goal: number
+          raised: number
+          donors: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          slug: string
+          name: string
+          age: number
+          city: string
+          need: string
+          story: string
+          goal: number
+          raised?: number
+          donors?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          slug?: string
+          name?: string
+          age?: number
+          city?: string
+          need?: string
+          story?: string
+          goal?: number
+          raised?: number
+          donors?: number
+          created_at?: string
+        }
+        Relationships: []
+      }
+      donations: {
+        Row: {
+          id: string
+          fundraiser_id: string
+          amount: number
+          donor_name: string | null
+          donor_email: string | null
+          razorpay_payment_id: string
+          razorpay_order_id: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          fundraiser_id: string
+          amount: number
+          donor_name?: string | null
+          donor_email?: string | null
+          razorpay_payment_id: string
+          razorpay_order_id: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          fundraiser_id?: string
+          amount?: number
+          donor_name?: string | null
+          donor_email?: string | null
+          razorpay_payment_id?: string
+          razorpay_order_id?: string
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "donations_fundraiser_id_fkey"
+            columns: ["fundraiser_id"]
+            isOneToOne: false
+            referencedRelation: "fundraisers"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

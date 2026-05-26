@@ -3,6 +3,9 @@ import { useCallback } from "react";
 interface CheckoutOptions {
   amount: number; // in paise (INR × 100)
   description?: string;
+  fundraiserId?: string;
+  donorName?: string;
+  donorEmail?: string;
   onSuccess?: (paymentId: string) => void;
   onDismiss?: () => void;
   onError?: (message: string) => void;
@@ -58,13 +61,17 @@ export function useRazorpay() {
         name: "Hear Bright",
         description: opts.description ?? "Donation",
         theme: { color: "#55B9E7" },
+        prefill: {
+          name: opts.donorName ?? "",
+          email: opts.donorEmail ?? "",
+        },
 
         async handler(response: {
           razorpay_payment_id: string;
           razorpay_order_id: string;
           razorpay_signature: string;
         }) {
-          // Step 3 — verify signature on the server
+          // Step 3 — verify signature and record donation on the server
           try {
             const verifyRes = await fetch("/api/verify-payment", {
               method: "POST",
@@ -73,6 +80,10 @@ export function useRazorpay() {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
+                fundraiser_id: opts.fundraiserId,
+                donor_name: opts.donorName,
+                donor_email: opts.donorEmail,
+                amount: opts.amount / 100, // paise → rupees for Supabase
               }),
             });
 
