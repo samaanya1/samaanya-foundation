@@ -10,7 +10,7 @@ import veethikaPhoto from "@/assets/team-veethika.jpg";
 const team = [
   {
     name: "Samay Tulsyan",
-    role: "Founder",
+    role: "Co-Founder",
     initials: "ST",
     photo: samayPhoto,
     bio: "Samay Tulsyan is the Founder of Samaanya Foundation with hearing disabilities. He himself is a person with hearing impairment who received a cochlear implant at a young age, enabling him to develop communication skills and pursue his educational goals. His personal journey has given him a deep understanding of the challenges faced by individuals with hearing disabilities and their families. Currently, Samay is a student at a prestigious law university, where he is committed to using education as a tool for social change. Inspired by his own experiences, he established Samaanya Foundation to support people of all ages with hearing disabilities through awareness, guidance, and community support. He believes that every individual deserves equal opportunities to learn, communicate, and succeed in life.",
