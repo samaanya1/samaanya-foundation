@@ -15,7 +15,7 @@ export const Footer = () => {
             <a href="mailto:info@samaanyafoundation.com" className="rounded-full border border-border p-2.5 text-foreground/70 transition-smooth hover:border-accent hover:text-accent" aria-label="Email">
               <Mail className="h-4 w-4" />
             </a>
-            <a href="#" className="rounded-full border border-border p-2.5 text-foreground/70 transition-smooth hover:border-accent hover:text-accent" aria-label="Instagram">
+            <a href="https://www.instagram.com/samaanya_foundation?igsh=dGs1dmV6dmF1cHBh" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-foreground/70 transition-smooth hover:border-accent hover:text-accent" aria-label="Instagram">
               <Instagram className="h-4 w-4" />
             </a>
             <a href="#" className="rounded-full border border-border p-2.5 text-foreground/70 transition-smooth hover:border-accent hover:text-accent" aria-label="LinkedIn">
