@@ -5,6 +5,7 @@ import samayPhoto from "@/assets/team-samay.png";
 import aanyaPhoto from "@/assets/team-aanya.png";
 import suhaniPhoto from "@/assets/team-suhani.jpg";
 import manishaPhoto from "@/assets/team-manisha.png";
+import veethikaPhoto from "@/assets/team-veethika.jpg";
 
 const team = [
   {
@@ -39,8 +40,8 @@ const team = [
     name: "Veethika Kapur",
     role: "Audiologist",
     initials: "VK",
-    photo: null as string | null,
-    bio: "Provides professional expertise in hearing health, cochlear implants, and guidance for families navigating the journey.",
+    photo: veethikaPhoto,
+    bio: "Veethika Kapur is a passionate Speech and Hearing Professional, Postgraduate (MASLP and BASLP) in Speech and Audiology from AYNIHH Mumbai 2006. Since then she has been a part of the listening journey of many kids and adults suffering with hearing loss or any concern related to speech, language or communication. A major part of her career she has served as a Clinical Specialist for Cochlear Implants, heading entire North India for Advanced Bionics (A Boston Scientific Cochlear Implant Company). In 2016, Veethika established her own clinic, V-Listen, to extend Speech and Hearing support to patients across all age groups — from children facing challenges such as delayed language development, speech clarity, stammering, severe autism, and down syndrome, to adults with complex speech and hearing disorders. She has over 20 years of proven experience in the field of Audiology and Speech Therapy, and has helped over 10,000 patients overcome their speech and hearing challenges.",
   },
 ];
 
