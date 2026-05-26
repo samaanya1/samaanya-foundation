@@ -69,8 +69,8 @@ const Contact = () => {
             <div className="rounded-3xl border border-border bg-card p-7">
               <Mail className="h-5 w-5 text-accent" />
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Email</p>
-              <a href="mailto:hello@samaanya.org" className="mt-1 block font-serif text-xl hover:text-accent">
-                hello@samaanya.org
+              <a href="mailto:info@samaanyafoundation.com" className="mt-1 block font-serif text-xl hover:text-accent">
+                info@samaanyafoundation.com
               </a>
             </div>
             <div className="rounded-3xl border border-border bg-card p-7">
