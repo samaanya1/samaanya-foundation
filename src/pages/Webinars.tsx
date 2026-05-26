@@ -11,6 +11,7 @@ type Webinar = {
   date: string | null;
   description: string | null;
   link: string | null;
+  image_url: string | null;
 };
 
 const Webinars = () => {
@@ -61,8 +62,16 @@ const Webinars = () => {
             {data.map((w) => (
               <div
                 key={w.id}
-                className="group rounded-2xl border border-border bg-card p-7 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant"
+                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant"
               >
+                {w.image_url && (
+                  <img
+                    src={w.image_url}
+                    alt={w.title}
+                    className="h-44 w-full object-cover"
+                  />
+                )}
+                <div className="p-7">
                 {w.speaker && (
                   <p className="text-xs font-medium uppercase tracking-widest text-accent">
                     With {w.speaker}
@@ -87,6 +96,7 @@ const Webinars = () => {
                     </a>
                   </Button>
                 )}
+                </div>
               </div>
             ))}
           </div>

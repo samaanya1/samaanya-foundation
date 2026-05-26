@@ -22,7 +22,37 @@ type Fundraiser = {
   goal: number;
   raised: number;
   donors: number;
+  image_url: string | null;
+  video_url: string | null;
 };
+
+function getYouTubeEmbedUrl(url: string): string | null {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+}
+
+function MediaBlock({ image_url, video_url }: { image_url: string | null; video_url: string | null }) {
+  if (!image_url && !video_url) return null;
+  const embedUrl = video_url ? getYouTubeEmbedUrl(video_url) : null;
+  return (
+    <div className="mb-5 overflow-hidden rounded-2xl bg-muted">
+      {image_url && !video_url && (
+        <img src={image_url} alt="Fundraiser" className="h-44 w-full object-cover" />
+      )}
+      {video_url && embedUrl && (
+        <iframe
+          src={embedUrl}
+          className="h-44 w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      )}
+      {video_url && !embedUrl && image_url && (
+        <img src={image_url} alt="Fundraiser" className="h-44 w-full object-cover" />
+      )}
+    </div>
+  );
+}
 
 const inr = (n: number) =>
   new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(n);
@@ -150,6 +180,7 @@ const Fundraisers = () => {
                   key={f.id}
                   className="flex flex-col rounded-3xl border border-border bg-card p-7 transition-smooth hover:-translate-y-1 hover:shadow-soft"
                 >
+                  <MediaBlock image_url={f.image_url} video_url={f.video_url} />
                   <h3 className="font-serif text-2xl">{f.name}</h3>
                   <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                     <MapPin className="h-3.5 w-3.5 text-accent" /> {f.city}

@@ -26,6 +26,8 @@ export type Database = {
           goal: number
           raised: number
           donors: number
+          image_url: string | null
+          video_url: string | null
           created_at: string
         }
         Insert: {
@@ -39,6 +41,8 @@ export type Database = {
           goal: number
           raised?: number
           donors?: number
+          image_url?: string | null
+          video_url?: string | null
           created_at?: string
         }
         Update: {
@@ -52,6 +56,8 @@ export type Database = {
           goal?: number
           raised?: number
           donors?: number
+          image_url?: string | null
+          video_url?: string | null
           created_at?: string
         }
         Relationships: []
@@ -64,6 +70,7 @@ export type Database = {
           date: string | null
           description: string | null
           link: string | null
+          image_url: string | null
           created_at: string
         }
         Insert: {
@@ -73,6 +80,7 @@ export type Database = {
           date?: string | null
           description?: string | null
           link?: string | null
+          image_url?: string | null
           created_at?: string
         }
         Update: {
@@ -82,6 +90,7 @@ export type Database = {
           date?: string | null
           description?: string | null
           link?: string | null
+          image_url?: string | null
           created_at?: string
         }
         Relationships: []
@@ -93,6 +102,7 @@ export type Database = {
           location: string | null
           story: string
           image_url: string | null
+          video_url: string | null
           created_at: string
         }
         Insert: {
@@ -101,6 +111,7 @@ export type Database = {
           location?: string | null
           story: string
           image_url?: string | null
+          video_url?: string | null
           created_at?: string
         }
         Update: {
@@ -109,6 +120,7 @@ export type Database = {
           location?: string | null
           story?: string
           image_url?: string | null
+          video_url?: string | null
           created_at?: string
         }
         Relationships: []

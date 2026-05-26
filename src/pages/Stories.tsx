@@ -9,7 +9,13 @@ type Story = {
   location: string | null;
   story: string;
   image_url: string | null;
+  video_url: string | null;
 };
+
+function getYouTubeEmbedUrl(url: string): string | null {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+}
 
 const Stories = () => {
   const { data = [], isLoading, isError } = useQuery({
@@ -85,6 +91,28 @@ const Stories = () => {
                   </div>
                 </div>
                 <p className="mt-5 leading-relaxed text-muted-foreground">{s.story}</p>
+                {s.video_url && (() => {
+                  const embedUrl = getYouTubeEmbedUrl(s.video_url!);
+                  return embedUrl ? (
+                    <div className="mt-5 overflow-hidden rounded-xl">
+                      <iframe
+                        src={embedUrl}
+                        className="h-48 w-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  ) : (
+                    <a
+                      href={s.video_url!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-block text-sm text-accent underline underline-offset-2"
+                    >
+                      Watch video →
+                    </a>
+                  );
+                })()}
               </div>
             ))}
           </div>
