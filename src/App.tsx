@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,9 +14,16 @@ import Donate from "./pages/Donate.tsx";
 import Contact from "./pages/Contact.tsx";
 import Webinars from "./pages/Webinars.tsx";
 import Stories from "./pages/Stories.tsx";
+import Admin from "./pages/Admin.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
+
+const PublicLayout = () => (
+  <Layout>
+    <Outlet />
+  </Layout>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -24,8 +31,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Layout>
-          <Routes>
+        <Routes>
+          {/* Admin — no navbar/footer */}
+          <Route path="/admin" element={<Admin />} />
+
+          {/* Public site — wrapped in Layout */}
+          <Route element={<PublicLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/understanding" element={<Understanding />} />
@@ -37,10 +48,9 @@ const App = () => (
             <Route path="/fundraisers" element={<Fundraisers />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
