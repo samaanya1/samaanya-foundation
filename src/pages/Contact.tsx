@@ -61,17 +61,17 @@ const Contact = () => {
         description="Whether you're seeking guidance for your family or want to work with us — write to us. There are no wrong questions."
       />
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl overflow-x-hidden px-6 py-20">
         <div className="grid gap-10 md:grid-cols-5">
           <aside className="space-y-6 md:col-span-2">
             <div className="rounded-3xl border border-border bg-card p-7">
               <Mail className="h-5 w-5 text-accent" />
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Email</p>
-              <a href="mailto:info@samaanyafoundation.com" className="mt-1 block font-serif text-xl hover:text-accent">
+              <a href="mailto:info@samaanyafoundation.com" className="mt-1 block break-all font-serif text-xl hover:text-accent">
                 info@samaanyafoundation.com
               </a>
             </div>
-<div className="rounded-3xl bg-primary-soft p-7">
+            <div className="rounded-3xl bg-primary-soft p-7">
               <MapPin className="h-5 w-5 text-primary" />
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-primary/80">Based in</p>
               <p className="mt-1 font-serif text-xl text-primary">India</p>
