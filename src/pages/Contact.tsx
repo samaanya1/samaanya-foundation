@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { Mail, MapPin, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 
@@ -71,13 +71,7 @@ const Contact = () => {
                 info@samaanyafoundation.com
               </a>
             </div>
-            <div className="rounded-3xl border border-border bg-card p-7">
-              <Phone className="h-5 w-5 text-accent" />
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Phone</p>
-              <p className="mt-1 font-serif text-xl">+91 99999 99999</p>
-              <p className="mt-1 text-xs text-muted-foreground">Mon–Sat · 10am to 6pm IST</p>
-            </div>
-            <div className="rounded-3xl bg-primary-soft p-7">
+<div className="rounded-3xl bg-primary-soft p-7">
               <MapPin className="h-5 w-5 text-primary" />
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-primary/80">Based in</p>
               <p className="mt-1 font-serif text-xl text-primary">India</p>
